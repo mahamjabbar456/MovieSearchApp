@@ -54,7 +54,9 @@ const MovieSearch = () => {
             }
             setMovieDetails(data); // Set movie details state with the fetched data
         } catch (error:any) {
-            setError(error.message); // Set error state with the error message
+            if(error instanceof Error){
+                setError(error.message); // Set error state with the error message
+            }
         } finally{
             setLoading(false); // Set loading to false after fetching data
         }
